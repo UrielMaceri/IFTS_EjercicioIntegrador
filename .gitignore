@@ -1,1 +1,7 @@
 Apuntes.txt
+
+.venv/
+__pycache__/
+*.pyc
+
+Back/PruebaService.py
