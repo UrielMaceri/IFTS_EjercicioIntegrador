@@ -11,11 +11,6 @@ class Usuario(Base):
         self.activo = activo
 
     # Metodos 
-    def cambiar_nombre(self, nuevoNombre, nuevoApellido):
-        self.nombre = nuevoNombre
-        self.apellido = nuevoApellido
-        
-
     def activar_desactivar(self):
         if self.activo:
             self.activo = False

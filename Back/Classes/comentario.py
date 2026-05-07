@@ -9,10 +9,10 @@ class Comentario(Base):
         self.usuarioMod = usuarioMod
 
     # Metodos
-
-    def editar(self, nuevoContenido, hechoPorUsuario):
-        self.contenido = nuevoContenido
-        self.usuarioMod = hechoPorUsuario       
+    # Ver si es necesario agregar un metodo para editar o si se hace desde el repo
+    #def editar(self, nuevoContenido, hechoPorUsuario):
+    #    self.contenido = nuevoContenido
+    #    self.usuarioMod = hechoPorUsuario       
 
     
     

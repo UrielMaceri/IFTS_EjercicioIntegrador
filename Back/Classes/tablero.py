@@ -18,9 +18,6 @@ class Tablero(Base):
                 self.estados.remove(estado)
                 break        
 
-    def cambiar_nombre(self, nuevoNombre):
-        self.nombre = nuevoNombre
-        
         
     
 

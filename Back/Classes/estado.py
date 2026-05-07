@@ -9,7 +9,6 @@ class Estado(Base):
 
     
     # Metodos
-
     def agregar_tarea(self, nuevaTarea):
         self.tareas.append(nuevaTarea)
 
