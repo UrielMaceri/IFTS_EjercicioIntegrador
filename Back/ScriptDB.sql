@@ -1,16 +1,19 @@
 CREATE DATABASE EjercicioIntegrador;
+GO
+
 USE EjercicioIntegrador;
+GO
 
 -- =========================
 -- USUARIO
 -- =========================
 CREATE TABLE usuario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100),
-    mail VARCHAR(150) UNIQUE NOT NULL,
-    contrasena VARCHAR(255) NOT NULL,
-    activo BOOLEAN DEFAULT TRUE,
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
+    apellido NVARCHAR(100),
+    mail NVARCHAR(150) UNIQUE NOT NULL,
+    contrasena NVARCHAR(255) NOT NULL,
+    activo BIT DEFAULT 1,
     fecha_creacion DATETIME,
     fecha_modificacion DATETIME
 );
@@ -19,13 +22,16 @@ CREATE TABLE usuario (
 -- TABLERO
 -- =========================
 CREATE TABLE tablero (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    descripcion TEXT,
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
+    descripcion NVARCHAR(MAX),
     propietario_id INT,
     fecha_creacion DATETIME,
     fecha_modificacion DATETIME,
-    FOREIGN KEY (propietario_id) REFERENCES usuario(id)
+
+    CONSTRAINT FK_tablero_usuario
+        FOREIGN KEY (propietario_id)
+        REFERENCES usuario(id)
         ON DELETE CASCADE
 );
 
@@ -33,13 +39,16 @@ CREATE TABLE tablero (
 -- ESTADO (columnas)
 -- =========================
 CREATE TABLE estado (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre NVARCHAR(100) NOT NULL,
     posicion INT,
     tablero_id INT,
     fecha_creacion DATETIME,
     fecha_modificacion DATETIME,
-    FOREIGN KEY (tablero_id) REFERENCES tablero(id)
+
+    CONSTRAINT FK_estado_tablero
+        FOREIGN KEY (tablero_id)
+        REFERENCES tablero(id)
         ON DELETE CASCADE
 );
 
@@ -47,9 +56,9 @@ CREATE TABLE estado (
 -- TAREA
 -- =========================
 CREATE TABLE tarea (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(150) NOT NULL,
-    descripcion TEXT,
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    titulo NVARCHAR(150) NOT NULL,
+    descripcion NVARCHAR(MAX),
     prioridad INT,
     usuario_asignado_id INT,
     estado_id INT,
@@ -57,11 +66,14 @@ CREATE TABLE tarea (
     posicion INT,
     fecha_creacion DATETIME,
     fecha_modificacion DATETIME,
-    
-    FOREIGN KEY (usuario_asignado_id) REFERENCES usuario(id)
-        ON DELETE SET NULL,
 
-    FOREIGN KEY (estado_id) REFERENCES estado(id)
+    CONSTRAINT FK_tarea_usuario
+        FOREIGN KEY (usuario_asignado_id)
+        REFERENCES usuario(id),
+
+    CONSTRAINT FK_tarea_estado
+        FOREIGN KEY (estado_id)
+        REFERENCES estado(id)
         ON DELETE CASCADE
 );
 
@@ -69,20 +81,24 @@ CREATE TABLE tarea (
 -- COMENTARIO
 -- =========================
 CREATE TABLE comentario (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT IDENTITY(1,1) PRIMARY KEY,
     tarea_id INT,
     usuario_id INT,
-    contenido TEXT,
+    contenido NVARCHAR(MAX),
     usuario_mod INT,
     fecha_creacion DATETIME,
     fecha_modificacion DATETIME,
 
-    FOREIGN KEY (tarea_id) REFERENCES tarea(id)
+    CONSTRAINT FK_comentario_tarea
+        FOREIGN KEY (tarea_id)
+        REFERENCES tarea(id)
         ON DELETE CASCADE,
 
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id)
-        ON DELETE CASCADE,
+    CONSTRAINT FK_comentario_usuario
+        FOREIGN KEY (usuario_id)
+        REFERENCES usuario(id),
 
-    FOREIGN KEY (usuario_mod) REFERENCES usuario(id)
-        ON DELETE SET NULL
+    CONSTRAINT FK_comentario_usuario_mod
+        FOREIGN KEY (usuario_mod)
+        REFERENCES usuario(id)
 );

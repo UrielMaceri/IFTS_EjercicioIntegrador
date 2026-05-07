@@ -1,9 +1,9 @@
-#import mysql.connector
+import pyodbc
 
-#def get_connection():
-#    return mysql.connector.connect(
-#        host="localhost",
-#        user="root",
-#        password="tu_password",
-#        database="EjercicioIntegrador"
-#    )
+def get_connection():
+    return pyodbc.connect(
+        "DRIVER={SQL Server};"
+        "SERVER=D4RKN16H7-PC\LOCALTEST;"
+        "DATABASE=EjercicioIntegrador;"
+        "Trusted_Connection=yes;"
+    )
