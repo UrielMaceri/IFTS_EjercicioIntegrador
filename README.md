@@ -11,7 +11,7 @@ Sistema tipo Trello{
 
     Stack{
         Backend: Python
-        DB: MySQL
+        DB: SQL Server
         Frontend: React
     }
 
