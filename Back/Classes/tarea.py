@@ -1,11 +1,12 @@
 from .base import Base
 
 class Tarea(Base):
-    def __init__(self, id, fechaCreacion, fechaModificacion, titulo, descripcion, prioridad, usuarioAsignado, fechaVencimiento, posicion, comentarios):
+    def __init__(self, id, fechaCreacion, fechaModificacion, titulo, descripcion, prioridad, estado, usuarioAsignado, fechaVencimiento, posicion, comentarios):
         super().__init__(id, fechaCreacion, fechaModificacion)
         self.titulo = titulo
         self.descripcion = descripcion 
         self.prioridad = prioridad
+        self.estado = estado
         self.usuarioAsignado = usuarioAsignado
         self.fechaVencimiento = fechaVencimiento
         self.posicion = posicion
