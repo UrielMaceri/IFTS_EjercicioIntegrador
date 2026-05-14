@@ -61,9 +61,7 @@ class TableroRepository:
         rows = cursor.fetchall()
         tableros = []
         for row in rows:
-            propietario = self.usuario_repo.obtener_por_id(
-                row.propietario_id
-            )
+            propietario = self.usuario_repo.obtener_por_id(row.propietario_id)
             tablero = Tablero(
                 row.id,
                 row.fecha_creacion,
