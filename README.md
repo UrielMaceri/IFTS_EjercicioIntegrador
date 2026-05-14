@@ -16,45 +16,29 @@ Sistema tipo Trello{
     }
 
     Clases principales{
+        Base
         Usuario
         Tablero
-        Lista
+        Estado
         Tarea
+        Comentario
     }
 
     Relaciones{
-        Un usuario tiene múltiples tableros
-        Un tablero contiene listas
-        Una lista contiene tareas
-    }
+        Un usuario tiene un o mas tablero/s
+        Un tablero contiene un o mas estado/s
+        Una lista contiene una o mas tarea/s
+        Una tarea tiene un o mas comentario/s
 
-    POO aplicada{
-        Composición fuerte (estructura jerárquica)
-        Encapsulación en estados de tareas
-        Posible uso de enums (estado/prioridad)
     }
 
     Funcionalidades base{
         Crear tableros
         Crear listas
         Crear/mover tareas
-        Cambiar estado (ToDo / Doing / Done)
-    }
-
-    Extras{
-        Prioridades
-        Comentarios en tareas
-        Usuarios compartidos
+        Cambiar estado de tareas
     }
 }
 
 ```
--------------------------------------------------------------------------------------------------------------------------------
-
-TAREAS 
-1) Hacer el diagrama de clases
-2) Crear las clases y objetos funcionales
-3) Probar funcionalidad sin Frontend
-4) Frontend/Visualizar objetos
-
 -------------------------------------------------------------------------------------------------------------------------------
