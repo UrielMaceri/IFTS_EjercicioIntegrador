@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
 Este es el proyecto elegido para el trabajo integrador de la materia "Programación Orientada a Objetos" de la Institución de Formacion Técnica Superior N°18
+El objetivo es lograr desarrollar un sistema similar a los tableros de trello/jira, pero un poco mas simple.
 
 -------------------------------------------------------------------------------------------------------------------------------
 
