@@ -24,9 +24,9 @@ class TareaRepository:
             tarea.titulo,
             tarea.descripcion,
             tarea.prioridad,
-            tarea.usuario_asignado.id,
+            tarea.usuarioAsignado.id,
             tarea.estado.id,
-            tarea.fecha_vencimiento,
+            tarea.fechaVencimiento,
             tarea.posicion,
             tarea.fechaCreacion,
             tarea.fechaModificacion
@@ -109,9 +109,9 @@ class TareaRepository:
             tarea.titulo,
             tarea.descripcion,
             tarea.prioridad,
-            tarea.usuario_asignado.id,
+            tarea.usuarioAsignado.id,
             tarea.estado.id,
-            tarea.fecha_vencimiento,
+            tarea.fechaVencimiento,
             tarea.posicion,
             datetime.now(),
             tarea.id
