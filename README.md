@@ -1,6 +1,7 @@
 -------------------------------------------------------------------------------------------------------------------------------
 
 Este es el proyecto elegido para el trabajo integrador de la materia "Programación Orientada a Objetos" de la Institución de Formacion Técnica Superior N°18
+
 El objetivo es lograr desarrollar un sistema similar a los tableros de trello/jira, pero un poco mas simple.
 
 -------------------------------------------------------------------------------------------------------------------------------
@@ -13,7 +14,7 @@ Sistema tipo Trello{
     Stack{
         Backend: Python
         DB: SQL Server
-        Frontend: React
+        Frontend: NodeJS / FrameWork React
     }
 
     Clases principales{
@@ -30,12 +31,11 @@ Sistema tipo Trello{
         Un tablero contiene un o mas estado/s
         Una lista contiene una o mas tarea/s
         Una tarea tiene un o mas comentario/s
-
     }
 
     Funcionalidades base{
         Crear tableros
-        Crear listas
+        Crear estados
         Crear/mover tareas
         Cambiar estado de tareas
     }
