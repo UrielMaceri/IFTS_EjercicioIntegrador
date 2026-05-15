@@ -20,7 +20,7 @@ export default function Login() {
             <br />
             <button
                 type="button"
-                height="40px"
+                
                 className="counter"
                 onClick={() => navigate("/Home")}
                 >Iniciar sesión
