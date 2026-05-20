@@ -1,5 +1,12 @@
+*Notas*
+-Backend ok por el momento
 
-Repositorios
-PROBAR REPOSITORIES
 
-Endpoints
+*Prioridades*
+-IMPORTANTE
+    *Terminar WebDesign
+    *Desarrollar Endpoints
+    *Conectar Front con Back y BBDD
+-SECUNDARIO
+    *Login Funcional con credenciales y websesion 
+    
