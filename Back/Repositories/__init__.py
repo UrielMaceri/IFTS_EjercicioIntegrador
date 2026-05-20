@@ -1,0 +1,5 @@
+from .estado_repository import EstadoRepository
+from .tablero_repository import TableroRepository
+from .usuario_repository import UsuarioRepository
+from .tarea_repository import TareaRepository
+from .comentario_repository import ComentarioRepository

@@ -4,10 +4,6 @@ Apuntes.txt
 __pycache__/
 *.pyc
 
-Back/PruebaService.py
-
 .vscode/
-
-Back/PruebaRepo.py
 
 ScriptPruebas.sql
