@@ -13,7 +13,7 @@ export default function Home() {
                 type="button"
                 className="counter"
                 onClick={() => navigate("/")}
-                >Salir
+                >Cerrar Sesión
             </button>   
         </header>
         <section>

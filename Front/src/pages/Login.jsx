@@ -1,5 +1,5 @@
 import '../App.css'
-import './Login.css'
+import './styles/Login.css'
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
@@ -18,7 +18,7 @@ export default function Login() {
             <br />
 
             <div className="form-row">
-                <input id="usuario" type="text" placeholder="Usuario" />
+                <input id="usuario" type="text" placeholder="E-Mail" />
             </div>
 
             <div className="form-row">

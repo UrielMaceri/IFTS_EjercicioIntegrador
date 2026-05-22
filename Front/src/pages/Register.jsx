@@ -1,15 +1,25 @@
 import '../App.css'
-import './Register.css'
+import './styles/Register.css'
 import { useState } from 'react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
+import { useNavigate } from "react-router-dom"
 
 export default function Register() {
 
     const objeto = {nombre: "Register.jsx"}
     const [verPassword, setVerPassword] = useState(false) 
+    const navigate = useNavigate()
 
     return(
     <div id="center">
+        <header id='header-fixed'>
+            <button
+                type="button"
+                className="counter"
+                onClick={() => navigate("/")}
+                >Salir
+            </button>   
+        </header>
 
         <h1>Introduzca sus datos</h1>
         <br />
@@ -29,7 +39,7 @@ export default function Register() {
 
             {/* MAIL*/}
             <div className="form-row">
-                <label className="field-desc" htmlFor="mail">Mail:</label>
+                <label className="field-desc" htmlFor="mail">E-Mail:</label>
                 <input id="mail" type="text" />
             </div>
 
