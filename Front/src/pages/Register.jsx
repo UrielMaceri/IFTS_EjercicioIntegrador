@@ -12,13 +12,17 @@ export default function Register() {
 
     return(
     <div id="center">
-        <header id='header-fixed'>
-            <button
-                type="button"
-                className="counter"
-                onClick={() => navigate("/")}
-                >Salir
-            </button>   
+        <header id='header-fixed' >
+            <div className='header-left'>
+            </div> 
+            <div className='header-right'>
+                <button
+                    type="button"
+                    className="counter"
+                    onClick={() => navigate("/")}
+                    >Salir
+                </button>
+            </div>   
         </header>
 
         <h1>Introduzca sus datos</h1>

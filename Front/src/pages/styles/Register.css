@@ -71,3 +71,17 @@
     width: 200px;
     font-size:x-large;
 }
+
+.header-left {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 16px;
+}

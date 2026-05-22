@@ -1,0 +1,561 @@
+
+.kanban-root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+#header-fixed {
+  justify-content: space-between;
+  padding: 0 20px;
+  gap: 16px;
+}
+
+.header-tablero-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+  opacity: 0.6;
+}
+
+.header-tablero-nombre {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  gap: 10px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  /* gap: 16px; */
+}
+
+.header-stat {
+  font-size: 12px;
+  color: var(--text);
+}
+
+.header-stat-num {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ── Board container ─────────────────────────────────────────────────────── */
+.kanban-board {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 68px 24px 48px; 
+  overflow-x: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* scrollbar fina */
+.kanban-board::-webkit-scrollbar        { height: 6px; }
+.kanban-board::-webkit-scrollbar-track  { background: transparent; }
+.kanban-board::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 3px; }
+
+/* ── Columna ─────────────────────────────────────────────────────────────── */
+.estado-columna {
+  flex: 0 0 280px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--code-bg, #1f2028);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: calc(100svh - 100px);
+}
+
+.estado-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px 12px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+}
+
+.estado-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.estado-nombre {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.estado-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--border);
+  border-radius: 10px;
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.estado-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.estado-body::-webkit-scrollbar        { width: 4px; }
+.estado-body::-webkit-scrollbar-track  { background: transparent; }
+.estado-body::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 2px; }
+
+.estado-empty {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.4;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+.btn-agregar-tarea {
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.btn-agregar-tarea:hover {
+  background: rgba(170, 59, 255, 0.08);
+  color: var(--accent);
+}
+
+/* ── Tarjeta de tarea ────────────────────────────────────────────────────── */
+.tarea-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  cursor: grab;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.tarea-card:hover {
+  border-color: var(--accent-border);
+  box-shadow: 0 4px 16px rgba(170, 59, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.tarea-prio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+}
+
+.tarea-body {
+  padding-left: 6px;
+}
+
+.tarea-titulo {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-h);
+  margin: 0 0 4px;
+  line-height: 1.4;
+}
+
+.tarea-desc {
+  font-size: 11px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.8;
+  /* truncar a 2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tarea-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 6px;
+}
+
+.tarea-prio-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 1px 6px;
+  opacity: 0.85;
+}
+
+.tarea-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* ── Botones icono ───────────────────────────────────────────────────────── */
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+  border-radius: 5px;
+  padding: 3px 6px;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
+  height: auto;
+}
+
+.btn-icon:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.btn-icon.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+}
+
+/* ── Menú mover tarea ────────────────────────────────────────────────────── */
+.move-menu-wrapper {
+  position: relative;
+}
+
+.move-menu {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 4px);
+  background: #1f2028;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 4px;
+  min-width: 150px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.move-menu button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-h);
+  padding: 6px 10px;
+  border-radius: 5px;
+  text-align: left;
+  height: auto;
+  transition: background 0.15s;
+}
+
+.move-menu button:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+.move-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Botón agregar columna ───────────────────────────────────────────────── */
+.btn-agregar-columna {
+  flex: 0 0 220px;
+  min-width: 220px;
+  height: 120px;
+  background: none;
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  align-self: flex-start;
+  margin-top: 0;
+}
+
+.btn-agregar-columna:hover {
+  border-color: var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-bg);
+}
+
+.plus-icon {
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+/* ── Modal ───────────────────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 16px;
+}
+
+.modal-box {
+  background: #1f2028;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  animation: modalIn 0.18s ease;
+}
+
+.modal-box--sm {
+  max-width: 340px;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-size: 16px;
+  margin: 0;
+  color: var(--text-h);
+}
+
+.modal-close {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.modal-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modal-body label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+}
+
+.modal-body label:first-child {
+  margin-top: 0;
+}
+
+.modal-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 9px 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-h);
+  font-family: var(--sans);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.modal-input:focus {
+  border-color: var(--accent-border);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.modal-textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+/* Selector prioridad */
+.prio-selector {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.prio-btn {
+  flex: 1;
+  padding: 6px 0;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  height: auto;
+}
+
+.prio-btn:hover,
+.prio-btn.active {
+  border-color: var(--pcolor);
+  color: var(--pcolor);
+  background: color-mix(in srgb, var(--pcolor) 10%, transparent);
+}
+
+/* Color picker */
+.color-picker {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 4px 0;
+}
+
+.color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+  padding: 0;
+  height: auto;
+}
+
+.color-dot:hover {
+  transform: scale(1.15);
+}
+
+.color-dot.selected {
+  border-color: white;
+  transform: scale(1.15);
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 14px 20px 18px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── Botones primario / secundario ───────────────────────────────────────── */
+.btn-primary {
+  padding: 8px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s, box-shadow 0.2s;
+  height: auto;
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  box-shadow: 0 4px 14px var(--accent-bg);
+}
+
+.btn-secondary {
+  padding: 8px 16px;
+  background: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  height: auto;
+}
+
+.btn-secondary:hover {
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .kanban-board {
+    padding: 60px 12px 40px;
+    gap: 12px;
+  }
+
+  .estado-columna {
+    flex: 0 0 250px;
+    min-width: 250px;
+  }
+
+  .header-stat {
+    display: none;
+  }
+
+  
+}
+

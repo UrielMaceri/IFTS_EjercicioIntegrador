@@ -1,4 +1,5 @@
 import '../App.css'
+import './styles/Home.css'
 import { useNavigate } from "react-router-dom"
 
 export default function Home() {
@@ -8,13 +9,17 @@ export default function Home() {
     
     return (
     <div id="center">
-        <header id='header-fixed'>
-            <button
-                type="button"
-                className="counter"
-                onClick={() => navigate("/")}
-                >Cerrar Sesión
-            </button>   
+        <header id='header-fixed' >
+            <div className='header-left'>
+            </div> 
+            <div className='header-right'>
+                <button
+                    type="button"
+                    className="counter"
+                    onClick={() => navigate("/")}
+                    >Cerrar Sesión
+                </button>
+            </div>   
         </header>
         <section>
             <div>
@@ -26,8 +31,8 @@ export default function Home() {
             <button
                 type="button"
                 className="counter"
-                // onClick={() => }
-                >Prueba de botón Home
+                onClick={() => navigate("/board")}
+                >Ir a tablero
             </button>
         </section>
 
