@@ -1,12 +1,11 @@
 *Notas*
--Backend ok por el momento
-
+Es impertinente desarrollar APIs: FastAPI -> REST 
+Limpiar y Utilizar los *_service.py como enrutadores
 
 *Prioridades*
--IMPORTANTE
-    *Terminar WebDesign
-    *Desarrollar Endpoints
-    *Conectar Front con Back y BBDD
--SECUNDARIO
-    *Login Funcional con credenciales y websesion 
-    
+Recuperar el user en front 
+Eecuperar TODOS los tableros del user logueado, y mostrarlos en la pantalla principal
+Por cada tablero, una especie de card clickeable con el nombre del tablero 
+Redirigir a ese tablero a apretar en la card y cargar KanbanBoard (estados, tareas, comentarios)
+Funcionalidad en los botones de Kanbanboard (borrar tarea -> borra la tarea en bbdd) 
+
