@@ -18,6 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
  
+# Para inicializar servicio desde cmd
+# uvicorn main:app --reload
+
 # Routers 
 app.include_router(usuario_router)
 app.include_router(tablero_router)
