@@ -1,11 +1,12 @@
 *Notas*
-Es impertinente desarrollar APIs: FastAPI -> REST 
-Limpiar y Utilizar los *_service.py como enrutadores
+Servicio backend finalizado por ahora
+Falta consumir los endpoints desde frontend
 
-*Prioridades*
-Recuperar el user en front 
-Eecuperar TODOS los tableros del user logueado, y mostrarlos en la pantalla principal
-Por cada tablero, una especie de card clickeable con el nombre del tablero 
-Redirigir a ese tablero a apretar en la card y cargar KanbanBoard (estados, tareas, comentarios)
-Funcionalidad en los botones de Kanbanboard (borrar tarea -> borra la tarea en bbdd) 
+Crear card para tarea:
+Tablero
+    -clic en una tarea -> abre un popup con 
+        ID
+        Nombre
+        Descripción
+        Sección de comentarios
 
