@@ -53,11 +53,11 @@ class TableroRepository:
         return None
 
     # READ ALL
-    def obtener_todos(self):
+    def obtener_todos(self, id_usuario):
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT * FROM tablero"
-        cursor.execute(query)
+        query = "SELECT * FROM tablero where propietario_id = ?"
+        cursor.execute(query,id_usuario)
         rows = cursor.fetchall()
         tableros = []
         for row in rows:
