@@ -55,11 +55,11 @@ class ComentarioRepository:
         return None
     
     # READ ALL
-    def obtener_todos(self):
+    def obtener_todos(self, id_tareas):
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT * FROM comentario"
-        cursor.execute(query)
+        query = "SELECT * FROM comentario wherr tarea_id = ?"
+        cursor.execute(query, id_tareas)
         rows = cursor.fetchall()
         comentarios = []
         for row in rows:

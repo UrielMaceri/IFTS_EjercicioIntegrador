@@ -61,11 +61,11 @@ class TareaRepository:
         return None
     
     # READ ALL
-    def obtener_todos(self):
+    def obtener_todos(self, id_estado):
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT * FROM tarea"
-        cursor.execute(query)
+        query = "SELECT * FROM tarea where estado_id = ?"
+        cursor.execute(query,id_estado)
         rows = cursor.fetchall()
         tareas = []
         for row in rows:

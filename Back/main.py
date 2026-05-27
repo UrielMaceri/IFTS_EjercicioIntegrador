@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from Routers.usuario_router import router as usuario_router
 from Routers.tablero_router import router as tablero_router
-# from Routers.estado_router import router as estado_router
-# from Routers.tarea_router import router as tarea_router
-# from Routers.comentario_router import router as comentario_router
+from Routers.estado_router import router as estado_router
+from Routers.tarea_router import router as tarea_router
+from Routers.comentario_router import router as comentario_router
  
 app = FastAPI()
  
@@ -24,9 +24,9 @@ app.add_middleware(
 # Routers 
 app.include_router(usuario_router)
 app.include_router(tablero_router)
-# app.include_router(estado_router)
-# app.include_router(tarea_router)
-# app.include_router(comentario_router)
+app.include_router(estado_router)
+app.include_router(tarea_router)
+app.include_router(comentario_router)
  
 # Health check 
 @app.get("/")

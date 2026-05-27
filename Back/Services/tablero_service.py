@@ -55,7 +55,7 @@ class TableroService:
         return True
 
     # Serialización
-    def _serializar(self, tablero):
+    def _serializar(self, tablero) -> dict:
         return{
             "id": tablero.id,
             "nombre": tablero.nombre,

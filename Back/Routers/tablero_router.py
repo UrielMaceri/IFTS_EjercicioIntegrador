@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
-from Services.tablero_service import TableroService
+from Services import TableroService
 
 router = APIRouter(prefix="/tablero", tags=["Tableros"])
 service = TableroService()
@@ -17,13 +17,13 @@ class TableroActualizarDTO(BaseModel):
     descripcion: str
 
 """ Endpoints """
-# GET /tablero/
-@router.get("/usuario/{id_usuario}")
+# GET /tablero/usuario/{id}
+@router.get("/usuario/{id_usuario}/")
 def obtener_todos(id_usuario: int):
     return service.obtener_todos(id_usuario)
 
 # GET /tablero/{id}
-@router.get("/{id_tablero}")
+@router.get("/{id_tablero}/")
 def obtener_tablero(id_tablero: int):
     tablero = service.obtener_por_id(id_tablero)
     if not tablero:

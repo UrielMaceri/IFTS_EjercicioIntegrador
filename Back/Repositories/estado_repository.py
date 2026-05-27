@@ -50,11 +50,11 @@ class EstadoRepository:
         return None
     
     # READ ALL
-    def obtener_todos(self):
+    def obtener_todos(self, id_tablero):
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT * FROM estado"
-        cursor.execute(query)
+        query = "SELECT * FROM estado where tablero_id = ?"
+        cursor.execute(query, id_tablero)
         rows = cursor.fetchall()
         estados = []
         for row in rows:
