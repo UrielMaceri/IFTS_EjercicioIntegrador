@@ -1,6 +1,15 @@
 *Notas*
-Servicio backend finalizado por ahora
-Falta consumir los endpoints desde frontend
+
+Crear Serivio y Router AUTH
+Servicio
+    -Compara datos planos con BBDD
+Router
+    -POST 
+        Recupera datos de formulario
+        Devuelve Usuario
+FrontEnd
+    -Login exitoso
+        Guarda Usuario en sesión -> Validar Tableros
 
 Crear card para tarea:
 Tablero

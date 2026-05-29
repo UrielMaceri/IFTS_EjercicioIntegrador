@@ -34,10 +34,17 @@ Sistema tipo Trello{
     }
 
     Funcionalidades base{
+        Login/Register funcional
+        Datos persistentes en una DB
+        Manejo de sesión WEB
         Crear tableros
         Crear estados
         Crear/mover tareas
         Cambiar estado de tareas
+    }
+
+    Funcionalidades Descartadas (por ahora){
+        Password Hashing  
     }
 }
 
