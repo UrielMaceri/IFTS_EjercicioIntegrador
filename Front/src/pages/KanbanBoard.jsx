@@ -77,7 +77,7 @@ export default function KanbanBoard() {
           <button type="button"
            className="counter" 
            onClick={() => navigate('/')}>
-            Salir
+            Cerrar Sesión
           </button>
         </div>
       </header>
