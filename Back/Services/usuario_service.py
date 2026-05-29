@@ -25,7 +25,7 @@ class UsuarioService:
             nombre=nombre,
             apellido=apellido,
             mail=mail,
-            contraseña=contrasena,
+            contrasena=contrasena,
             tableros=[],
             activo=True
         )

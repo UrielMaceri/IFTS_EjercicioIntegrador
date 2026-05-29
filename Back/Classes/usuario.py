@@ -1,12 +1,12 @@
 from .base import Base
 
 class Usuario(Base):
-    def __init__(self, id, fechaCreacion, fechaModificacion, nombre, apellido, mail, contraseña, tableros, activo):
+    def __init__(self, id, fechaCreacion, fechaModificacion, nombre, apellido, mail, contrasena, tableros, activo):
         super().__init__(id, fechaCreacion, fechaModificacion)
         self.nombre = nombre
         self.apellido = apellido
         self.mail = mail
-        self.contraseña = contraseña
+        self.contrasena = contrasena
         self.tableros = tableros
         self.activo = activo
 
@@ -17,7 +17,7 @@ class Usuario(Base):
         else:
             self.activo = True
     
-    def validar_contraseña(self, contraseña):
-        return self.contraseña == contraseña
+    def validar_contrasena(self, contrasena):
+        return self.contrasena == contrasena
         
     

@@ -5,6 +5,7 @@ from Routers.tablero_router import router as tablero_router
 from Routers.estado_router import router as estado_router
 from Routers.tarea_router import router as tarea_router
 from Routers.comentario_router import router as comentario_router
+from Routers.auth_router import router as auth_router
  
 app = FastAPI()
  
@@ -27,6 +28,7 @@ app.include_router(tablero_router)
 app.include_router(estado_router)
 app.include_router(tarea_router)
 app.include_router(comentario_router)
+app.include_router(auth_router)
  
 # Health check 
 @app.get("/")

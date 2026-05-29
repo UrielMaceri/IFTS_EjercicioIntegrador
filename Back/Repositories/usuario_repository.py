@@ -18,7 +18,7 @@ class UsuarioRepository:
             usuario.nombre,
             usuario.apellido,
             usuario.mail,
-            usuario.contraseña,
+            usuario.contrasena,
             usuario.activo,
             usuario.fechaCreacion,
             usuario.fechaModificacion
@@ -32,6 +32,28 @@ class UsuarioRepository:
         cursor = conn.cursor()
         query = "SELECT * FROM usuario WHERE id = ?"
         cursor.execute(query, id_usuario)
+        row = cursor.fetchone()
+        conn.close()
+        if row:
+            return Usuario(
+                row.id,
+                row.fecha_creacion,
+                row.fecha_modificacion,
+                row.nombre,
+                row.apellido,
+                row.mail,
+                row.contrasena,
+                [],  # tableros
+                row.activo
+            )
+        return None
+    
+    # READ BY MAIL
+    def obtener_por_mail(self, mail_usuario):
+        conn = get_connection()
+        cursor = conn.cursor()
+        query = "SELECT * FROM usuario WHERE mail = ?"
+        cursor.execute(query, mail_usuario)
         row = cursor.fetchone()
         conn.close()
         if row:
@@ -91,7 +113,7 @@ class UsuarioRepository:
             usuario.nombre,
             usuario.apellido,
             usuario.mail,
-            usuario.contraseña,
+            usuario.contrasena,
             usuario.activo,
             datetime.now(),
             usuario.id
