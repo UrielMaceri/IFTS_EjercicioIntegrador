@@ -16,7 +16,9 @@ export default function Home() {
                 <button
                     type="button"
                     className="counter"
-                    onClick={() => navigate("/")}
+                    onClick={() => 
+                        {localStorage.removeItem('usuario')
+                        navigate("/")}}
                     >Cerrar Sesión
                 </button>
             </div>   

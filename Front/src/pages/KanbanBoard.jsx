@@ -76,7 +76,7 @@ export default function KanbanBoard() {
         <div className="margin-right">
           <button type="button"
            className="counter" 
-           onClick={() => navigate('/')}>
+           onClick={() => localStorage.removeItem('usuario'), navigate('/')}>
             Cerrar Sesión
           </button>
         </div>
