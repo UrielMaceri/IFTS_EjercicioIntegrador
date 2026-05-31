@@ -1,11 +1,8 @@
 import { useState } from 'react'
 import '../styles/KanbanBoard.css'
 
-const COLORES = ['#aa3bff', '#3b82f6', '#f59e0b', '#22c55e', '#ef4444', '#ec4899', '#14b8a6']
-
 export default function EstadoModal({ onGuardar, onCerrar }) {
   const [nombre, setNombre] = useState('')
-  const [color, setColor] = useState(COLORES[0])
 
   return (
     <div className="modal-overlay" onClick={onCerrar}>
@@ -26,24 +23,13 @@ export default function EstadoModal({ onGuardar, onCerrar }) {
             autoFocus
           />
 
-          <label>Color</label>
-          <div className="color-picker">
-            {COLORES.map(c => (
-              <button
-                key={c}
-                className={`color-dot ${color === c ? 'selected' : ''}`}
-                style={{ background: c }}
-                onClick={() => setColor(c)}
-              />
-            ))}
-          </div>
         </div>
 
         <div className="modal-footer">
           <button className="btn-secondary" onClick={onCerrar}>Cancelar</button>
           <button
             className="btn-primary"
-            onClick={() => { if (nombre.trim()) onGuardar(nombre.trim(), color) }}
+            onClick={() => { if (nombre.trim()) onGuardar(nombre.trim()) }}
           >
             Crear columna
           </button>

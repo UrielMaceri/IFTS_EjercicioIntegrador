@@ -1,43 +1,26 @@
 import '../App.css'
 import './styles/Home.css'
-import { useNavigate } from "react-router-dom"
+import './styles/NavBar.css'
+import { useNavigate } from 'react-router-dom'
+import NavBar from './components/NavBar'
 
 export default function Home() {
+  const navigate = useNavigate()
+  const usuario = JSON.parse(localStorage.getItem('usuario'))
+  if (!usuario) navigate('/')
 
-    const objeto = {nombre: "Home.jsx"}
-    const navigate = useNavigate()
-    
-    return (
-    <div id="center">
-        <header id='header-fixed' >
-            <div className='header-left'>
-            </div> 
-            <div className='header-right'>
-                <button
-                    type="button"
-                    className="counter"
-                    onClick={() => 
-                        {localStorage.removeItem('usuario')
-                        navigate("/")}}
-                    >Cerrar Sesión
-                </button>
-            </div>   
-        </header>
-        <section>
-            <div>
-                <h1>Pantalla principal</h1>
-                <p>
-                </p>
-            </div>
-            <br />
-            <button
-                type="button"
-                className="counter"
-                onClick={() => navigate("/board")}
-                >Ir a tablero
-            </button>
+  const nombre = usuario?.nombre ?? usuario?.mail ?? 'Usuario'
+
+  return (
+    <div className="app-layout">
+      <NavBar />
+
+      <div className="app-main">
+        <section className="home-page">
+          <h1>Hola, {nombre}</h1>
+          <p>Seleccioná un tablero del menú lateral para empezar a trabajar.</p>
         </section>
-
-        <footer id='footer-fixed'>{objeto.nombre}</footer>
-    </div>)
-};
+      </div>
+    </div>
+  )
+}

@@ -1,15 +1,38 @@
 
 .kanban-root {
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
   background: var(--bg);
 }
 
-#header-fixed {
+.kanban-cargando {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 40px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.kanban-page-header {
+  display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  padding: 0 20px;
   gap: 16px;
+  padding: 20px 24px 0;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.kanban-page-header h1.header-tablero-nombre {
+  font-size: 22px;
+  margin: 4px 0 0;
+  letter-spacing: -0.02em;
+}
+
+.kanban-header-stats {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0;
 }
 
 .header-tablero-label {
@@ -54,7 +77,7 @@
   flex-direction: row;
   align-items: flex-start;
   gap: 16px;
-  padding: 68px 24px 48px; 
+  padding: 16px 24px 32px;
   overflow-x: auto;
   flex: 1;
   min-height: 0;
@@ -82,11 +105,24 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 16px 12px;
+  padding: 14px 12px 12px;
   border-bottom: 1px solid var(--border);
   background: rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
+}
+
+.estado-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.estado-header-actions .btn-icon:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
 }
 
 .estado-dot {
@@ -190,6 +226,30 @@
 
 .tarea-body {
   padding-left: 6px;
+}
+
+.tarea-body-clickable {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0 0 0 6px;
+  margin: 0;
+  height: auto;
+}
+
+.tarea-body-clickable:hover .tarea-titulo {
+  color: var(--accent);
+}
+
+.tarea-comentarios-hint {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.75;
 }
 
 .tarea-titulo {
@@ -372,6 +432,183 @@
   max-width: 340px;
 }
 
+.modal-box--detalle {
+  max-width: 520px;
+  max-height: min(90svh, 720px);
+}
+
+.detalle-body {
+  overflow-y: auto;
+  max-height: calc(90svh - 120px);
+}
+
+.detalle-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detalle-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detalle-id {
+  font-size: 12px;
+  color: var(--text);
+  opacity: 0.6;
+  font-family: var(--mono);
+}
+
+.detalle-titulo {
+  font-size: 20px;
+  margin: 0 0 16px;
+  color: var(--text-h);
+  text-align: left;
+  line-height: 1.3;
+}
+
+.detalle-seccion {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.detalle-seccion h3 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  margin: 0 0 8px;
+}
+
+.detalle-count {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.detalle-descripcion {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-h);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.detalle-comentarios {
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+  margin-bottom: 0;
+}
+
+.comentarios-lista {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.comentarios-vacio {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.5;
+  font-style: italic;
+  padding: 8px 0;
+}
+
+.comentario-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.comentario-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.comentario-cabecera-derecha {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.comentario-acciones {
+  display: flex;
+  gap: 2px;
+}
+
+.btn-sm-icon {
+  font-size: 12px;
+  padding: 2px 5px;
+}
+
+.comentario-edicion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comentario-edicion-botones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.comentario-autor {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.comentario-fecha {
+  font-size: 10px;
+  color: var(--text);
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.comentario-texto {
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+  color: var(--text-h);
+  white-space: pre-wrap;
+}
+
+.comentario-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+.comentario-input {
+  width: 100%;
+  min-height: 64px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.96) translateY(8px); }
   to   { opacity: 1; transform: scale(1)    translateY(0); }
@@ -542,8 +779,14 @@
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
+  .kanban-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px 0;
+  }
+
   .kanban-board {
-    padding: 60px 12px 40px;
+    padding: 12px;
     gap: 12px;
   }
 

@@ -7,7 +7,6 @@ import toast from 'react-hot-toast'
 
 export default function Register() {
 
-    const objeto = {nombre: "Register.jsx"}
     const [verPassword, setVerPassword] = useState(false) 
     const navigate = useNavigate()
 
@@ -119,7 +118,6 @@ export default function Register() {
         onClick={handleSubmit}
         >Registrarse</button>
 
-        <footer id='footer-fixed'>{objeto.nombre}</footer>
     </div>
     )
 }

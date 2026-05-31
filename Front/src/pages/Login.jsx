@@ -7,7 +7,6 @@ import toast from 'react-hot-toast'
 
 export default function Login() {
 
-    const objeto = {nombre: "Login.jsx"}
     const navigate = useNavigate()
     const [verPassword, setVerPassword] = useState(false) 
 
@@ -88,7 +87,6 @@ export default function Login() {
             </div>
         </section>
 
-        <footer id='footer-fixed'>{objeto.nombre}</footer>
     </div>
     )
 }
