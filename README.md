@@ -1,3 +1,8 @@
+Proyecto 100% funcional y utilizable.
+(Ver Pending.txt para extras que agregaré en un futuro .)
+
+*Se utlizó el modelo de IA "Cursor" para diseño de pantallas y ordenamiento de objetos creados.*
+
 -------------------------------------------------------------------------------------------------------------------------------
 
 Este es el proyecto elegido para el trabajo integrador de la materia "Programación Orientada a Objetos" de la Institución de Formacion Técnica Superior N°18

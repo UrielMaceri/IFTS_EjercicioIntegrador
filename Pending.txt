@@ -1,21 +1,5 @@
-*Notas*
+*Extra*
+Funciones: Editar(todos) y Eliminar(admin) usuarios
+Hasheo-Encriptación de contraseñas
 
-Crear Serivio y Router AUTH
-Servicio
-    -Compara datos planos con BBDD
-Router
-    -POST 
-        Recupera datos de formulario
-        Devuelve Usuario
-FrontEnd
-    -Login exitoso
-        Guarda Usuario en sesión -> Validar Tableros
-
-Crear card para tarea:
-Tablero
-    -clic en una tarea -> abre un popup con 
-        ID
-        Nombre
-        Descripción
-        Sección de comentarios
-
+Posible Despligue/Publicación
