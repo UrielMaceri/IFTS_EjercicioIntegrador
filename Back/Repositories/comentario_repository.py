@@ -58,12 +58,13 @@ class ComentarioRepository:
     def obtener_todos(self, id_tareas):
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT * FROM comentario wherr tarea_id = ?"
+        query = "SELECT * FROM comentario WHERE tarea_id = ?"
         cursor.execute(query, id_tareas)
         rows = cursor.fetchall()
         comentarios = []
         for row in rows:
             usuario = self.usuario_repo.obtener_por_id(row.usuario_id)
+            usuario_mod = self.usuario_repo.obtener_por_id(row.usuario_mod)
             tarea = self.tarea_repo.obtener_por_id(row.tarea_id)
             comentario = Comentario(
                 row.id,
@@ -72,7 +73,7 @@ class ComentarioRepository:
                 tarea,
                 usuario,
                 row.contenido,
-                row.usuario_mod
+                usuario_mod
             )
             comentarios.append(comentario)
         conn.close()
