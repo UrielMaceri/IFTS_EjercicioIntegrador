@@ -327,9 +327,7 @@
 }
 
 .move-menu {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 4px);
+  position: fixed;
   background: #1f2028;
   border: 1px solid var(--border);
   border-radius: 8px;

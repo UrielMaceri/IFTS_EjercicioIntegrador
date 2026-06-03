@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import MoveMenu from './MoveMenu'
 
 const PRIORIDADES = {
   alta:  { label: 'Alta',  color: '#ef4444' },
@@ -8,6 +9,7 @@ const PRIORIDADES = {
 
 export default function TareaCard({ tarea, estadoId, onMover, onEliminar, onEditar, onVerDetalle, estados }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuButtonRef = useRef(null)
   const prio = PRIORIDADES[tarea.prioridad] ?? PRIORIDADES.media
 
   return (
@@ -29,21 +31,24 @@ export default function TareaCard({ tarea, estadoId, onMover, onEliminar, onEdit
 
         <div className="tarea-actions">
           <div className="move-menu-wrapper">
-            <button type="button" className="btn-icon" title="Mover" onClick={e => { e.stopPropagation(); setMenuOpen(o => !o) }}>
+            <button 
+              type="button" 
+              ref={menuButtonRef}
+              className="btn-icon" 
+              title="Mover" 
+              onClick={e => { e.stopPropagation(); setMenuOpen(o => !o) }}
+            >
               ⇄
             </button>
-            {menuOpen && (
-              <div className="move-menu">
-                {estados
-                  .filter(e => e.id !== estadoId)
-                  .map(e => (
-                    <button key={e.id} type="button" onClick={() => { onMover(tarea.id, estadoId, e.id); setMenuOpen(false) }}>
-                      <span className="move-dot" style={{ background: e.color }} />
-                      {e.nombre}
-                    </button>
-                  ))}
-              </div>
-            )}
+            <MoveMenu
+              isOpen={menuOpen}
+              buttonRef={menuButtonRef}
+              estados={estados}
+              estadoId={estadoId}
+              tarea={tarea}
+              onMover={onMover}
+              onClose={() => setMenuOpen(false)}
+            />
           </div>
 
           <button type="button" className="btn-icon" title="Editar" onClick={e => { e.stopPropagation(); onEditar(tarea, estadoId) }}>✎</button>
